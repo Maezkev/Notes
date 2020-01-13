@@ -34,3 +34,39 @@ public class POWER_Recruitment{
       }
     }
   }
+  
+   //Method Untuk validasi penulisan nama
+  static boolean validname(String iname){ 
+    if (iname.length() >= 5 && iname.length() <= 20){
+      StringTokenizer jmlkata = new StringTokenizer(iname);
+      if(jmlkata.countTokens() == 2){
+        return true;
+      }else System.out.println ("Please input 2 words name."); 
+       return false; 
+    }else System.out.println ("Please input name between 5 to 20 characters."); 
+     return false; 
+  }
+
+ //Menu 1
+  static void INC(){
+    isiCD.clear();
+    String dataCD [] = new String [4];
+    inputuser.nextLine();
+    //Check input grade pakai method validgrade
+    do{
+      System.out.print("\nInput candidate's name [5...20] : ");
+      dataCD[0] = inputuser.nextLine();
+    }
+    while(!validname(dataCD[0]));
+      System.out.print("Input candidate's gender [male | female] : ");
+      dataCD[1] = inputuser.next();
+      System.out.print("Input candidate's address [must be ended with 'street'] : ");
+      dataCD[2] = inputuser.next().toUpperCase();  
+      System.out.print("Input candidate's age [17...30] : ");
+      dataCD[3] = inputuser.next();
+      
+    isiCD.add(dataCD); 
+    System.out.println();
+    System.out.print(">> Thank You for registering! Your initial is : " + "<<\n\n");
+  }
+}
