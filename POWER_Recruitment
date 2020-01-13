@@ -35,7 +35,7 @@ public class POWER_Recruitment{
     }
   }
   
-   //Method Untuk validasi penulisan nama
+   //Method Untuk Validasi Penulisan Nama
   static boolean validname(String iname){ 
     if (iname.length() >= 5 && iname.length() <= 20){
       StringTokenizer jmlkata = new StringTokenizer(iname);
@@ -46,6 +46,28 @@ public class POWER_Recruitment{
     }else System.out.println ("Please input name between 5 to 20 characters."); 
      return false; 
   }
+  
+  //Method Untuk Validasi Penulisan Gender
+  static boolean validgender(String gender){ 
+    if ("MALE".equals(gender.toUpperCase()) || "FEMALE".equals(gender.toUpperCase()))
+    {
+      return true;
+    }else{
+      System.out.println ("Please input the right gender [male / female]."); 
+      return false;
+    }
+  }
+
+  //Method Untuk Validasi Penulisan Umur
+  static boolean validage(String agetxt){ 
+    int agenum = Integer.parseInt(agetxt);
+    if ( agenum <= 17 || agenum >= 30){
+      System.out.println ("Please input age between 17 to 30.");  
+      return false;
+    }else{
+      return true; 
+    }
+  }
 
  //Menu 1
   static void INC(){
@@ -54,18 +76,26 @@ public class POWER_Recruitment{
     inputuser.nextLine();
     //Check input grade pakai method validgrade
     do{
-      System.out.print("\nInput candidate's name [5...20] : ");
+      System.out.print("\nInput candidate's name [5 to 20 character] : ");
       dataCD[0] = inputuser.nextLine();
     }
     while(!validname(dataCD[0]));
-      System.out.print("Input candidate's gender [male | female] : ");
-      dataCD[1] = inputuser.next();
-      System.out.print("Input candidate's address [must be ended with 'street'] : ");
-      dataCD[2] = inputuser.next().toUpperCase();  
-      System.out.print("Input candidate's age [17...30] : ");
+      do{
+        System.out.print("Input candidate's gender [male / female] : ");
+        dataCD[1] = inputuser.next();
+      }
+    while(!validgender(dataCD[1]));
+      //do{
+        System.out.print("Input candidate's address [must be ended with 'street'] : ");
+        dataCD[2] = inputuser.next().toUpperCase();  
+      //}
+    //while(!validadress(dataCD[2]));
       inputuser.nextLine();
-      dataCD[3] = inputuser.next();
-      
+      do{
+        System.out.print("Input candidate's age [17 to 30] : "); 
+        dataCD[3] = inputuser.next();
+      }
+    while(!validage(dataCD[3]));
     isiCD.add(dataCD); 
     System.out.println();
     bikininisial(dataCD[0]);
