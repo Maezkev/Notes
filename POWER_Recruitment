@@ -23,12 +23,12 @@ public class POWER_Recruitment{
         case 1:
           INC();
           break;
-        case 2:
-          VCD();
-          break;
-        case 3:
-          RC();
-          break;
+        //case 2:
+          //VCD();
+          //break;
+        //case 3:
+          //RC();
+          //break;
         case 4:
           break;
       }
@@ -63,10 +63,21 @@ public class POWER_Recruitment{
       System.out.print("Input candidate's address [must be ended with 'street'] : ");
       dataCD[2] = inputuser.next().toUpperCase();  
       System.out.print("Input candidate's age [17...30] : ");
+      inputuser.nextLine();
       dataCD[3] = inputuser.next();
       
     isiCD.add(dataCD); 
     System.out.println();
-    System.out.print(">> Thank You for registering! Your initial is : " + "<<\n\n");
+    bikininisial(dataCD[0]);
+  }
+  
+  static void bikininisial(String name){
+    if(name.length() == 0)
+      return;
+    System.out.print(">> Thank You for registering! Your initial is " + Character.toUpperCase(name.charAt(0)));
+    
+    for(int i = 1 ; i < name.length() - 1 ; i-=-1)
+      if(name.charAt(i) == ' ')
+        System.out.print(" " + Character.toUpperCase(name.charAt(i + 1)) + "<<\n\n");
   }
 }
