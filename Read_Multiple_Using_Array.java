@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class triv {
+public class Read_Multiple_Using_Array {
   public static void main(String[] args) {
     Scanner inputuser = new Scanner(System.in);
     int much = inputuser.nextInt(); // input banyaknya inputan
