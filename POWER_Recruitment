@@ -11,7 +11,7 @@ public class POWER_Recruitment{
   public static void main(String[] args) {
     int nomenu = 0;
     while (nomenu != 4){
-      System.out.println("\nPOWER Recruitment \n"
+      System.out.print("\nPOWER Recruitment \n"
                       + "=================== \n"
                       + "1. Input New Candidate \n"
                       + "2. View Candidate’s Data \n"
@@ -39,11 +39,11 @@ public class POWER_Recruitment{
   static boolean validname(String iname){ 
     if (iname.length() >= 5 && iname.length() <= 20){
       StringTokenizer jmlkata = new StringTokenizer(iname);
-      if(jmlkata.countTokens() == 2){
+      if(jmlkata.countTokens() >= 2){
         return true;
-      }else System.out.println ("Please input 2 words name."); 
+      }else System.out.println (">> Please input 2 words name."); 
        return false; 
-    }else System.out.println ("Please input name between 5 to 20 characters."); 
+    }else System.out.println (">> Please input name between 5 to 20 characters."); 
      return false; 
   }
   
@@ -53,7 +53,7 @@ public class POWER_Recruitment{
     {
       return true;
     }else{
-      System.out.println ("Please input the right gender [male / female]."); 
+      System.out.println (">> Please input the right gender between male / female.\n"); 
       return false;
     }
   }
@@ -61,8 +61,8 @@ public class POWER_Recruitment{
   //Method Untuk Validasi Penulisan Umur
   static boolean validage(String agetxt){ 
     int agenum = Integer.parseInt(agetxt);
-    if ( agenum <= 17 || agenum >= 30){
-      System.out.println ("Please input age between 17 to 30.");  
+    if ( agenum <= 16 || agenum >= 31){
+      System.out.println (">> Please input age between 17 to 30.\n");  
       return false;
     }else{
       return true; 
@@ -108,6 +108,7 @@ public class POWER_Recruitment{
     
     for(int i = 1 ; i < name.length() - 1 ; i-=-1)
       if(name.charAt(i) == ' ')
-        System.out.print(" " + Character.toUpperCase(name.charAt(i + 1)) + "<<\n\n");
+        System.out.print(" " + Character.toUpperCase(name.charAt(i + 1)));
+    System.out.print(" <<\n\n");
   }
 }
